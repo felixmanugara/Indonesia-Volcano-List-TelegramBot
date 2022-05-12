@@ -83,9 +83,13 @@ def send_volcano(message):
 
 @server.route('/' + TOKEN, methods=['POST'])
 def getMessage():
-    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode["utf-8"])])
-
-    return "!", 200
+    try:
+         bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode["utf-8"])])
+         return "!", 200
+    
+    except TypeError:
+        print('terjadi error tipe')
+    
 
 @server.route("/")
 def webhook():
