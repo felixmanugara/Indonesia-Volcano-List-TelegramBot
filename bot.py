@@ -5,7 +5,7 @@ import functools
 from geopy.geocoders import Nominatim
 from flask import Flask, request
 
-TOKEN = "5374213245:AAEYlvWyBb4LFzz9GwqcXY6sYqAbPB09SOM"
+TOKEN = "Your token"
 API_URL = 'https://indonesia-public-static-api.vercel.app/api/volcanoes'
 GITHUB_PAGE = 'https://github.com/felixmanugara/telegram-bot-Indonesia-volcano-list'
 
@@ -21,7 +21,7 @@ def volcano_api(APIname):
 
 def geocode_parser(geocoordinate):
     try:
-        geolocator = Nominatim(user_agent="marcofel.manugara@gmail.com")
+        geolocator = Nominatim(user_agent="your email")
         geocode = functools.lru_cache(maxsize=128)(functools.partial(geolocator.geocode, timeout=5))
          
         return geocode(geocoordinate)
@@ -96,7 +96,7 @@ def getMessage():
 @server.route("/")
 def webhook():
     bot.remove_webhook()
-    bot.set_webhook(url='https://cryptic-hamlet-60742.herokuapp.com/' + TOKEN)
+    bot.set_webhook(url='heroku URL' + TOKEN)
     
     return "!", 200
 
