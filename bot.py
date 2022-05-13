@@ -7,6 +7,7 @@ from flask import Flask, request
 
 TOKEN = "5374213245:AAEYlvWyBb4LFzz9GwqcXY6sYqAbPB09SOM"
 API_URL = 'https://indonesia-public-static-api.vercel.app/api/volcanoes'
+GITHUB_PAGE = 'https://github.com/felixmanugara/telegram-bot-Indonesia-volcano-list'
 
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
@@ -53,10 +54,15 @@ Daftar Gunung berapi dapat diakses dengan perintah berikut:
 /volcano "nama gunung" - menunjukan hanya data Gunung terkait.
 /volcano "bentuk gunung" - menunjukan data gunung berdasarkan bentuknya.
 
-contoh penggunaan perintah:
+contoh cara penggunaan bot:
+
 /volcano krakatau - akan menunjukan data tentang gunung krakatau.
-/volcano kaldera - akan menunjukan data gunung yang memiliki bentuk kaldera.
-"""
+/volcano kaldera - akan menunjukan data semua gunung yang memiliki bentuk kaldera.
+
+bot ini dibuat berdasarkan data dari Web API {}
+source code dari project ini dapat dilihat pada tautan berikut {}
+""".format(API_URL, GITHUB_PAGE)
+
     bot.reply_to(message, about_bot)
 
 @bot.message_handler(commands=['volcano'])
