@@ -2,6 +2,6 @@
 Scripts/
 Lib/
 Include/
-Procfile
+*Procfile
 
 
