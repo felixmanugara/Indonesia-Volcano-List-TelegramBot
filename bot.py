@@ -39,25 +39,25 @@ lokasi: {}
 
     return data
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-    bot.reply_to(message, "hello i'am an echo bot!!")
-
-@bot.message_handler(commands=['help'])
-def about(message):
     about_bot = """
+Halo Saya adalah bot daftar gunung berapi di Indonesia.
 Apa yang Bot ini dapat Lakukan?
 Bot ini berisi daftar Gunung- 
 Gunung berapi aktif yang ada di Indonesia.
 
-Daftar Gunung berapi dapat diakses dengan perintah:
+Daftar Gunung berapi dapat diakses dengan perintah berikut:
                 
-/volcano - menunjukan seluruh daftar Gunung
-/volcano "nama gunung" - menunjukan hanya data Gunung terkait
+/volcano - menunjukan seluruh daftar Gunung.
+/volcano "nama gunung" - menunjukan hanya data Gunung terkait.
+/volcano "bentuk gunung" - menunjukan data gunung berdasarkan bentuknya.
 
+contoh penggunaan perintah:
+/volcano krakatau - akan menunjukan data tentang gunung krakatau.
+/volcano kaldera - akan menunjukan data gunung yang memiliki bentuk kaldera.
 """
     bot.reply_to(message, about_bot)
-
 
 @bot.message_handler(commands=['volcano'])
 def send_volcano(message):
